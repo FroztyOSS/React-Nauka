@@ -2,8 +2,8 @@ import styles from './SearchForm.module.scss';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { updateSearchString } from '../../redux/store';
+import { useState } from 'react';
+import { updateSearchString } from '../../redux/searchStringRedux.js';
 
 const SearchForm = () => {
 
@@ -18,11 +18,6 @@ const SearchForm = () => {
     dispatch(updateSearchString(searchString));
   };
 
-  useEffect(() => {
-    return () => {
-    dispatch(updateSearchString(''));
-    }
-  }, []);
 
   return (
     <form className={styles.searchForm} onSubmit={handleSubmit}>
